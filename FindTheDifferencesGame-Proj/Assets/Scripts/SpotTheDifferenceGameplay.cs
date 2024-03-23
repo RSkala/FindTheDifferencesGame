@@ -24,6 +24,12 @@ public class SpotTheDifferenceGameplay : MonoBehaviour
             GameObject clickedGameObject = raycastHit2D.collider.gameObject;
             Debug.Log("clickedGameObject: " + clickedGameObject.name);
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.CorrectSelection);
+
+            CorrectSelectionMarker correctSelectionMarker = clickedGameObject.GetComponent<CorrectSelectionMarker>();
+            if(correctSelectionMarker != null)
+            {
+                correctSelectionMarker.OnSelected();
+            }
         }
         else
         {
